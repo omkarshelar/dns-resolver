@@ -85,3 +85,19 @@ function resolve() {
       document.getElementById("submitBtn").disabled = false;
     });
 }
+
+localStorage.setItem("darkTheme", false); // set default
+
+function switchTheme() {
+  if (localStorage.getItem("darkTheme") == "false") {
+    DarkReader.enable({
+      brightness: 100,
+      contrast: 90,
+      sepia: 10,
+    });
+    localStorage.setItem("darkTheme", true);
+  } else {
+    DarkReader.disable();
+    localStorage.setItem("darkTheme", false);
+  }
+}

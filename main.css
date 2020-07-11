@@ -36,3 +36,11 @@ hr {
   height: 2rem;
   line-height: 2rem;
 }
+
+.menu > .theme {
+  float: right;
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
