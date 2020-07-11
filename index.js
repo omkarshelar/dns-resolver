@@ -47,7 +47,9 @@ function resolve() {
     return;
   }
   axios
-    .get("https://dns-resolver.omkarshelar.dev/dns-resolver?domain=" + hostname)
+    .get(
+      "https://dns-resolver-api.omkarshelar.dev/dns-resolver?domain=" + hostname
+    )
     .then((response) => {
       results = response.data.results;
       for (let recordType in results) {
