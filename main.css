@@ -30,3 +30,9 @@ hr {
 .footer > .gh {
   float: right;
 }
+#errorMsg {
+  display: none;
+  color: #e3242b;
+  height: 2rem;
+  line-height: 2rem;
+}

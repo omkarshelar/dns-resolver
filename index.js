@@ -37,13 +37,30 @@ function addTR(recordType, records) {
 
 function clearTable() {
   document.getElementById("tableBody").innerHTML = "";
+  document.getElementById("resultsHeader").innerHTML =
+    "Results for hostname : ";
+}
+
+function processHostname(hostname) {
+  if (hostname.startsWith("https://")) {
+    hostname = hostname.slice(8);
+  } else if (hostname.startsWith("http://")) {
+    hostname = hostname.slice(7);
+  }
+  if (hostname.includes("/")) {
+    hostname = hostname.slice(0, hostname.indexOf("/"));
+  }
+  return hostname.toLowerCase();
 }
 
 function resolve() {
   document.getElementById("results").style.display = "none";
   clearTable();
-  const hostname = document.getElementById("hostname").value;
+  document.getElementById("submitBtn").disabled = true;
+  let hostname = document.getElementById("hostname").value;
+  hostname = processHostname(hostname);
   if (!hostname || !hostname.length) {
+    document.getElementById("submitBtn").disabled = false;
     return;
   }
   axios
@@ -56,6 +73,15 @@ function resolve() {
         let row = addTR(recordType, results[recordType]);
         document.getElementById("tableBody").innerHTML += row;
       }
+      document.getElementById("errorMsg").style.display = "none";
+      document.getElementById("resultsHeader").innerHTML += hostname;
       document.getElementById("results").style.display = "block";
+    })
+    .catch((err) => {
+      console.error("Error : ", err);
+      document.getElementById("errorMsg").style.display = "block";
+    })
+    .finally(() => {
+      document.getElementById("submitBtn").disabled = false;
     });
 }

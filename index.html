@@ -19,6 +19,7 @@
           <input type="text" placeholder="example.com" id="hostname" required />
           <button
             type="submit"
+            id="submitBtn"
             class="pure-button pure-button-primary"
             onclick="resolve()"
           >
@@ -29,6 +30,7 @@
 
       <!-- Results -->
       <div id="results">
+        <h1 id="resultsHeader">Results for hostname : </h1>
         <table class="pure-table pure-table-horizontal pure-table-striped">
           <thead>
             <tr>
@@ -38,6 +40,10 @@
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
+      </div>
+
+      <div id="errorMsg">
+        An error occured while retrieving the records. Please try again.
       </div>
 		</main>
 		<hr>
