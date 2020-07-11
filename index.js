@@ -86,8 +86,18 @@ function resolve() {
     });
 }
 
-localStorage.setItem("darkTheme", false); // set default
-
+if (!localStorage.getItem("darkTheme")) {
+  localStorage.setItem("darkTheme", false); // set default
+}
+if (localStorage.getItem("darkTheme") == "true") {
+  DarkReader.enable({
+    brightness: 100,
+    contrast: 90,
+    sepia: 10,
+  });
+} else {
+  DarkReader.disable();
+}
 function switchTheme() {
   if (localStorage.getItem("darkTheme") == "false") {
     DarkReader.enable({
