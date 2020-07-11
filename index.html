@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS Resolver</title>
+    <link rel="stylesheet" href="pure-min.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="pure-menu pure-menu-horizontal menu">
+      <a href="." class="pure-menu-heading">DNS Resolver</a>
+    </div>
+    <main>
+      <form class="pure-form" onsubmit="return false">
+        <fieldset>
+          <legend>Enter hostname to resolve</legend>
+          <label for="hostname">Hostname : </label>
+          <input type="text" placeholder="example.com" id="hostname" required />
+          <button
+            type="submit"
+            class="pure-button pure-button-primary"
+            onclick="resolve()"
+          >
+            Resolve
+          </button>
+        </fieldset>
+      </form>
+
+      <!-- Results -->
+      <div id="results">
+        <table class="pure-table pure-table-horizontal pure-table-striped">
+          <thead>
+            <tr>
+              <th>Record Type</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+		</main>
+		<hr>
+		<div class="footer">
+			
+			<span>&copy; Omkar Shelar</span> 
+			<span class="gh"><a href="https://github.com/omkarshelar">Fork me on GitHub</a></span>
+			<div>
+    <script src="axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

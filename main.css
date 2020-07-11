@@ -1,0 +1,32 @@
+main {
+  padding: 2rem;
+  min-height: calc(100vh - 3rem - 4rem - 30px);
+}
+.menu {
+  background: #000;
+  height: 3rem;
+}
+.menu > a {
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: #fff;
+  font-size: 2rem;
+  text-transform: none;
+}
+#results {
+  display: none;
+}
+
+hr {
+  margin: 0;
+}
+
+.footer {
+  font-weight: bold;
+}
+.footer > span {
+  padding: 5px 10px;
+  float: left;
+}
+.footer > .gh {
+  float: right;
+}
